@@ -209,7 +209,6 @@ export const deleteItem = async (req, res) => {
             });
         }
 
-        await item.populate('foundBy', 'claimedBy').exec();
         res.status(200).json({
             "Details": item,
             "Message": "Item deleted successfully",

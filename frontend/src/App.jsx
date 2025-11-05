@@ -10,6 +10,7 @@ import CreateFinderPage from "./pages/CreateFinderPage";
 import EditItemPage from "./pages/EditItemPage";
 import EditFinderPage from "./pages/EditFinderPage";
 import EditClaimerPage from "./pages/EditClaimerPage";
+import LoginPage from "./pages/LoginPage";
 
 function App() {
     const [selectedType, setSelectedType] = useState("finder");
@@ -24,6 +25,7 @@ function App() {
                         path="/"
                         element={<HomePage selectedType={selectedType} setSelectedType={setSelectedType} />}
                     />
+                    <Route path="/login" element={<LoginPage />} />
                     <Route path="/create-claimer" element={<CreateClaimerPage />} />
                     <Route path="/create-item" element={<CreateItemPage />} />
                     <Route path="/create-finder" element={<CreateFinderPage />} />

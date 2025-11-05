@@ -4,6 +4,7 @@ import { connectDB } from "./config/db.js";
 import finderRoutes from "./routes/finder.route.js";
 import claimerRoutes from "./routes/claimer.route.js";
 import itemRoutes from "./routes/item.route.js";
+import employeeRoutes from "./routes/employee.route.js";
 
 dotenv.config();
 const app = express();
@@ -18,6 +19,7 @@ app.listen(PORT, () => {
 app.use("/api/finder", finderRoutes);
 app.use("/api/claimer", claimerRoutes);
 app.use("/api/item", itemRoutes);
+app.use("/api/employee", employeeRoutes);
 
 app.get("/", (req, res) => {
     res.send("LAFIT API is running...");

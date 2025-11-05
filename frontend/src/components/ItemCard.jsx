@@ -1,6 +1,7 @@
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import { Box, Button, Heading, HStack, Image, Text, useColorModeValue, useToast, VStack } from "@chakra-ui/react";
 import { useItemStore } from "../store/ItemStore";
+import { useAuthStore } from "../store/AuthStore";
 import { useNavigate } from "react-router-dom";
 
 const ItemCard = ({ item }) => {
@@ -8,6 +9,7 @@ const ItemCard = ({ item }) => {
     const textColor = useColorModeValue("gray.600", "gray.200");
 
     const { deleteItem } = useItemStore();
+    const { employee } = useAuthStore();
     const toast = useToast();
     const navigate = useNavigate();
 
@@ -56,24 +58,16 @@ const ItemCard = ({ item }) => {
                     </Text>
                 )}
 
-                <HStack spacing={2} mt={4} justify="flex-end">
-                    <Button
-                        leftIcon={<EditIcon />}
-                        colorScheme="blue"
-                        size="sm"
-                        onClick={() => navigate(`/edit-item/${item._id}`)}
-                    >
-                        Edit
-                    </Button>
-                    <Button
-                        leftIcon={<DeleteIcon />}
-                        colorScheme="red"
-                        size="sm"
-                        onClick={() => handleDelete(item._id)}
-                    >
-                        Delete
-                    </Button>
-                </HStack>
+                {employee && ( // 👈 only show buttons if logged in
+                    <HStack spacing={2} mt={4} justify="flex-end" w="full">
+                        <Button leftIcon={<EditIcon />} colorScheme="blue" size="sm" onClick={() => navigate(`/edit-claimer/${claimer._id}`)}>
+                            Edit
+                        </Button>
+                        <Button leftIcon={<DeleteIcon />} colorScheme="red" size="sm" onClick={() => handleDelete(claimer._id)}>
+                            Delete
+                        </Button>
+                    </HStack>
+                )}
             </Box>
         </Box>
     );

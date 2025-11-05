@@ -1,6 +1,7 @@
 import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import { Box, Button, HStack, Text, useColorModeValue, useToast, VStack } from "@chakra-ui/react";
 import { useFinderStore } from "../store/FinderStore";
+import { useAuthStore } from "../store/AuthStore";
 import { useNavigate } from "react-router-dom";
 
 const FinderCard = ({ finder }) => {
@@ -8,6 +9,7 @@ const FinderCard = ({ finder }) => {
     const textColor = useColorModeValue("gray.700", "gray.200");
 
     const { deleteFinder } = useFinderStore();
+    const { employee } = useAuthStore();
     const toast = useToast();
     const navigate = useNavigate();
 
@@ -39,14 +41,16 @@ const FinderCard = ({ finder }) => {
                 <Text fontSize="sm" color={textColor}>
                     Username: {finder.userName}
                 </Text>
-                <HStack spacing={2} mt={4} justify="flex-end" w="full">
-                    <Button leftIcon={<EditIcon />} colorScheme="blue" size="sm" onClick={() => navigate(`/edit-finder/${finder._id}`)}>
-                        Edit
-                    </Button>
-                    <Button leftIcon={<DeleteIcon />} colorScheme="red" size="sm" onClick={() => handleDelete(finder._id)}>
-                        Delete
-                    </Button>
-                </HStack>
+                {employee && ( // 👈 only show buttons if logged in
+                    <HStack spacing={2} mt={4} justify="flex-end" w="full">
+                        <Button leftIcon={<EditIcon />} colorScheme="blue" size="sm" onClick={() => navigate(`/edit-claimer/${claimer._id}`)}>
+                            Edit
+                        </Button>
+                        <Button leftIcon={<DeleteIcon />} colorScheme="red" size="sm" onClick={() => handleDelete(claimer._id)}>
+                            Delete
+                        </Button>
+                    </HStack>
+                )}
             </VStack>
         </Box>
     );

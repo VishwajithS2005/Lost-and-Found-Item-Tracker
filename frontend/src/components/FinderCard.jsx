@@ -43,10 +43,10 @@ const FinderCard = ({ finder }) => {
                 </Text>
                 {employee && ( // 👈 only show buttons if logged in
                     <HStack spacing={2} mt={4} justify="flex-end" w="full">
-                        <Button leftIcon={<EditIcon />} colorScheme="blue" size="sm" onClick={() => navigate(`/edit-claimer/${claimer._id}`)}>
+                        <Button leftIcon={<EditIcon />} colorScheme="blue" size="sm" onClick={() => navigate(`/edit-finder/${finder._id}`)}>
                             Edit
                         </Button>
-                        <Button leftIcon={<DeleteIcon />} colorScheme="red" size="sm" onClick={() => handleDelete(claimer._id)}>
+                        <Button leftIcon={<DeleteIcon />} colorScheme="red" size="sm" onClick={() => handleDelete(finder._id)}>
                             Delete
                         </Button>
                     </HStack>

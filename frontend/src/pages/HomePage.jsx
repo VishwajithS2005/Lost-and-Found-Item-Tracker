@@ -38,7 +38,7 @@ const HomePage = ({ selectedType, setSelectedType }) => {
 		<Container maxW="container.xl" py={8}>
 			<VStack spacing={6}>
 				<HStack spacing={4}>
-					{["finder", "claimer", "item"].map((type) => (
+					{["item", "finder", "claimer"].map((type) => (
 						<Button
 							key={type}
 							colorScheme={selectedType === type ? "blue" : "gray"}

@@ -13,7 +13,7 @@ import EditClaimerPage from "./pages/EditClaimerPage";
 import LoginPage from "./pages/LoginPage";
 
 function App() {
-    const [selectedType, setSelectedType] = useState("finder");
+    const [selectedType, setSelectedType] = useState("item");
 
     return (
         <div>

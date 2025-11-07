@@ -61,11 +61,11 @@ const Navbar = ({ selectedType }) => {
                         {colorMode === "light" ? <IoMoon /> : <LuSun size="20" />}
                     </Button>
                     {employee ? (
-                        <Button colorScheme="red" onClick={handleLogout}>
+                        <Button colorScheme="red" onClick={handleLogout} name="logout" aria-label="logout">
                             <TbLogout fontSize={20} />
                         </Button>
                     ) : (
-                        <Button colorScheme="green" onClick={() => navigate("/login")}>
+                        <Button colorScheme="green" onClick={() => navigate("/login")} name="login" aria-label="login">
                             <TbLogin fontSize={20} />
                         </Button>
                     )}

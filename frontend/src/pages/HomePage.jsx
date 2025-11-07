@@ -43,6 +43,7 @@ const HomePage = ({ selectedType, setSelectedType }) => {
 							key={type}
 							colorScheme={selectedType === type ? "blue" : "gray"}
 							onClick={() => setSelectedType(type)}
+                            aria-label={type}
 						>
 							{type.charAt(0).toUpperCase() + type.slice(1)}
 						</Button>
